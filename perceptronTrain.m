@@ -29,8 +29,8 @@ function W0_W = perceptronTrain (n, W0, W, X0, S, T, iter)
        
       for j = 1:length(Y)
         if  Y(j) != T(i,j)
-          W = W + n*(T(i)- Y(j))*S(i,:);
-          W0 = W0 + n*(T(i)- Y(j))*X0;
+          W(j,:) = W(j,:) + n*(T(i,j)- Y(j))*S(i,:);
+          W0(j,:) = W0(j,:) + n*(T(i,j)- Y(j))*X0;
           converged = converged & false;
         endif   
       endfor   
